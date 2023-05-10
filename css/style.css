@@ -317,8 +317,8 @@ h1, h2, h3, h4, h5, h6, figure {
 .info {
   margin: 0;
   padding: 0;
-  width: 90%;
-  float: left;
+  /* width: 90%; */
+  /* float: left; */
 }
 @media screen and (max-width: 768px) {
   .info {
@@ -336,7 +336,6 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .info li .first-block {
   width: 40%;
-  display: inline-block;
   float: left;
   color: #000;
   font-weight: bold;
@@ -406,7 +405,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .fh5co-heading {
-  margin-bottom: 5em;
+  margin-bottom: 3em;
 }
 .fh5co-heading.fh5co-heading-sm {
   margin-bottom: 2em;
