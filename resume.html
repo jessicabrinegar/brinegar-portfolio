@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jessica Mae Brinegar — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:     #EFE9DD;
+      --ink:    #2B2A26;
+      --ink-2:  #4A4842;
+      --ink-3:  #7A7568;
+      --rule:   rgba(43,42,38,.20);
+      --accent: #5C6E54;
+      --f-display:"Newsreader", ui-serif, Georgia, serif;
+      --f-body:   "Newsreader", ui-serif, Georgia, serif;
+      --f-mono:   "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:#DAD3C0}
+    body{
+      font-family:var(--f-body);
+      color:var(--ink);
+      font-size:11pt;
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    a{color:inherit;text-decoration:none}
+    a.link{border-bottom:1px solid var(--rule)}
+    h1,h2,h3{margin:0;font-weight:400}
+
+    /* Sheet — sized like Letter, with page-margin padding visible on screen */
+    .sheet{
+      width: 8.5in;
+      min-height: 11in;
+      margin: 28px auto;
+      padding: 0.55in 0.6in;
+      background: var(--bg);
+      box-shadow: 0 8px 32px rgba(0,0,0,.16);
+    }
+
+    /* Header */
+    .hdr{
+      display:grid; grid-template-columns: 1fr auto; gap: 24px; align-items:end;
+      padding-bottom: 14pt; border-bottom: 1px solid var(--rule); margin-bottom: 16pt;
+    }
+    .name{
+      font-family:var(--f-display); font-size: 30pt; line-height: 1;
+      letter-spacing: -0.025em; margin: 0 0 6pt 0;
+    }
+    .role{
+      font-family:var(--f-mono); font-size: 9pt; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--ink-3);
+    }
+    .contacts{
+      font-family:var(--f-mono); font-size: 9pt; color: var(--ink-2);
+      text-align: right; line-height: 1.7;
+    }
+    .contacts a{display:block}
+    .contacts a:hover{color:var(--accent)}
+
+    .summary{
+      font-style: italic; color: var(--ink-2);
+      max-width: 5.8in; margin: 0 0 18pt 0;
+      font-size: 11pt; line-height: 1.55;
+    }
+
+    /* Section heading */
+    h2.section{
+      font-family:var(--f-mono); font-size: 9pt; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--ink-3); font-weight: 500;
+      margin: 16pt 0 10pt 0; padding-bottom: 4pt;
+      border-bottom: 1px solid var(--rule);
+      display:flex; align-items:center; gap: 14px;
+    }
+    h2.section .bar{flex:1; height:1px; background: transparent}
+
+    /* Entry (used by Experience and Education) */
+    .entry{
+      display: grid; grid-template-columns: 1.2in 1fr;
+      gap: 14pt; margin-bottom: 10pt;
+      page-break-inside: avoid; break-inside: avoid;
+    }
+    .entry-meta{
+      font-family:var(--f-mono); font-size: 8.5pt;
+      color: var(--ink-3); letter-spacing: .04em; line-height: 1.55;
+    }
+    .entry-meta .when{ color: var(--ink-2) }
+    .entry-role{
+      font-family:var(--f-display); font-size: 13pt; line-height: 1.2;
+      margin: 0 0 2pt 0;
+    }
+    .entry-org{
+      font-family:var(--f-mono); font-size: 10pt;
+      color: var(--accent); margin: 0; letter-spacing: .02em;
+    }
+    .entry-detail{
+      font-size: 10pt; color: var(--ink-2); margin-top: 3pt; line-height: 1.5;
+    }
+    .entry-bullets{
+      margin: 5pt 0 0 14pt; padding: 0; color: var(--ink-2);
+    }
+    .entry-bullets li{font-size: 10pt; line-height: 1.5; margin-bottom: 2pt}
+
+    /* Certifications */
+    .cert{
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 18pt; align-items: baseline;
+      font-size: 10.5pt; line-height: 1.5; padding: 4pt 0;
+    }
+    .cert .org{
+      color: var(--ink-3); font-family: var(--f-mono); font-size: 9pt;
+      letter-spacing: .04em; margin-left: 8pt;
+    }
+    .cert-when{
+      font-family:var(--f-mono); font-size: 9pt; color: var(--accent);
+      letter-spacing: .04em;
+    }
+
+    /* Skills grid */
+    .skills-grid{
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(2in, 1fr));
+      gap: 10pt 22pt;
+    }
+    .skill-group h3{
+      font-family:var(--f-mono); font-size: 8.5pt; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--ink-3); font-weight: 500;
+      margin: 0 0 4pt 0;
+    }
+    .skill-group .items{font-size: 10.5pt; color: var(--ink); line-height: 1.55}
+
+    /* Floating actions (screen only) */
+    .actions{
+      position: fixed; top: 16px; right: 16px;
+      display: flex; gap: 8px; z-index: 99;
+      font-family: var(--f-mono); font-size: 11px;
+      letter-spacing: .14em; text-transform: uppercase;
+    }
+    .actions a, .actions button{
+      background: rgba(43,42,38,.92); color: #F6F1E4;
+      padding: 9px 14px; border: 0; border-radius: 99px;
+      cursor: pointer; font: inherit;
+    }
+    .actions a:hover, .actions button:hover{background: #2B2A26}
+
+    /* Print */
+    @page { size: letter; margin: 0.5in; }
+    @media print {
+      html, body{ background: white }
+      .actions{ display: none }
+      .sheet{
+        width: auto; min-height: 0;
+        margin: 0; padding: 0; box-shadow: none;
+        background: white;
+      }
+      a{ color: inherit }
+      a.link{ border-bottom: none }
+    }
+  </style>
+</head>
+<body>
+  <div class="actions">
+    <a href="index.html">← Back</a>
+    <button onclick="window.print()">Download as PDF</button>
+  </div>
+
+  <article class="sheet" id="sheet"></article>
+
+  <script src="data.js"></script>
+  <script>
+    const d = window.PORTFOLIO;
+    const esc = (s) => String(s == null ? "" : s)
+      .replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c]));
+
+    const liHost = (() => { try { return new URL(d.links.linkedin).pathname.replace(/^\//,"").replace(/\/$/,""); } catch(e){ return "linkedin"; } })();
+    const ghHost = (() => { try { return new URL(d.links.github).pathname.replace(/^\//,"").replace(/\/$/,""); } catch(e){ return "github"; } })();
+
+    let html = "";
+
+    // ── Header ──────────────────────────────────────────────────────────
+    html += `
+      <header class="hdr">
+        <div>
+          <h1 class="name">${esc(d.name)}</h1>
+          <div class="role">${esc(d.role)}</div>
+        </div>
+        <div class="contacts">
+          <a href="mailto:${esc(d.links.email)}">${esc(d.links.email)}</a>
+          <a href="${esc(d.links.linkedin)}">linkedin.com/${esc(liHost)}</a>
+          <a href="${esc(d.links.github)}">github.com/${esc(ghHost)}</a>
+        </div>
+      </header>
+    `;
+
+    // ── Summary ─────────────────────────────────────────────────────────
+    if (d.hero && d.hero.sub) {
+      html += `<p class="summary">${esc(d.hero.sub)}</p>`;
+    }
+
+    // ── Experience ──────────────────────────────────────────────────────
+    if (d.experience && d.experience.length) {
+      html += `<h2 class="section"><span>Experience</span><span class="bar"></span></h2>`;
+      d.experience.forEach(j => {
+        html += `
+          <div class="entry">
+            <div class="entry-meta">
+              <div class="when">${esc(j.when)}</div>
+              ${j.where ? `<div>${esc(j.where)}</div>` : ""}
+            </div>
+            <div>
+              <h3 class="entry-role">${esc(j.role)}</h3>
+              <div class="entry-org">${esc(j.org)}</div>
+              ${j.bullets && j.bullets.length
+                ? `<ul class="entry-bullets">${j.bullets.map(b => `<li>${esc(b)}</li>`).join("")}</ul>`
+                : ""}
+              ${j.url
+                ? `<div style="margin-top:6pt"><a class="link" href="${esc(j.url)}">${esc(j.urlLabel || "Read more")}</a></div>`
+                : ""}
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // ── Education ───────────────────────────────────────────────────────
+    if (d.education && d.education.length) {
+      html += `<h2 class="section"><span>Education</span><span class="bar"></span></h2>`;
+      d.education.forEach(e => {
+        html += `
+          <div class="entry">
+            <div class="entry-meta"><div class="when">${esc(e.when)}</div></div>
+            <div>
+              <h3 class="entry-role">${esc(e.school)}</h3>
+              <div class="entry-org">${esc(e.degree)}</div>
+              ${e.detail ? `<div class="entry-detail">${esc(e.detail)}</div>` : ""}
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // ── Certifications ──────────────────────────────────────────────────
+    if (d.certifications && d.certifications.length) {
+      html += `<h2 class="section"><span>Certifications</span><span class="bar"></span></h2>`;
+      d.certifications.forEach(c => {
+        const label = c.url
+          ? `<a class="link" href="${esc(c.url)}">${esc(c.name)}</a>`
+          : esc(c.name);
+        html += `
+          <div class="cert">
+            <div>${label}<span class="org">${esc(c.org)}</span></div>
+            <div class="cert-when">${esc(c.when)}</div>
+          </div>
+        `;
+      });
+    }
+
+    // ── Skills ──────────────────────────────────────────────────────────
+    if (d.skills && d.skills.length) {
+      html += `<h2 class="section"><span>Skills</span><span class="bar"></span></h2>`;
+      html += `<div class="skills-grid">`;
+      d.skills.forEach(g => {
+        const items = g.items.map(i => i.name).join(" · ");
+        html += `
+          <div class="skill-group">
+            <h3>${esc(g.group)}</h3>
+            <div class="items">${esc(items)}</div>
+          </div>
+        `;
+      });
+      html += `</div>`;
+    }
+
+    // ── Continuing study (only if present) ──────────────────────────────
+    if (d.courses && d.courses.length) {
+      html += `<h2 class="section"><span>Continuing Study</span><span class="bar"></span></h2>`;
+      d.courses.forEach(c => {
+        const label = c.url
+          ? `<a class="link" href="${esc(c.url)}">${esc(c.name)}</a>`
+          : esc(c.name);
+        html += `
+          <div class="cert">
+            <div>${label}<span class="org">${esc(c.org)}</span></div>
+            <div class="cert-when">${esc(c.kind)}</div>
+          </div>
+        `;
+      });
+    }
+
+    document.getElementById("sheet").innerHTML = html;
+    document.title = `${d.name} — Resume`;
+  </script>
+</body>
+</html>

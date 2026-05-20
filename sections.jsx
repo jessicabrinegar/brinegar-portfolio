@@ -272,7 +272,6 @@ const Experience = ({ data }) => (
             gridTemplateColumns: "160px minmax(0, 1fr)",
             gap: "clamp(20px, 4vw, 56px)",
             padding: "36px 0",
-            borderTop: i === 0 ? "1px solid var(--rule)" : "none",
             borderBottom: "1px solid var(--rule)",
           }}>
             <div style={{
@@ -658,6 +657,19 @@ const Footer = ({ data }) => {
             color: "rgba(246,241,228,.55)", textTransform: "uppercase" }}>GitHub</span>
           <span style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 18 }}>
             <IconGitHub size={16} /> @{ghHandle} <IconArrowOut size={12} />
+          </span>
+        </a>
+        <a href={data.links.resume} target="_blank" rel="noreferrer" style={{
+          display: "flex", flexDirection: "column", gap: 6,
+        }}>
+          <span style={{ fontFamily: "var(--f-mono)", fontSize: 11, letterSpacing: ".18em",
+            color: "rgba(246,241,228,.55)", textTransform: "uppercase" }}>Resume</span>
+          <span style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 18 }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M6 3h9l5 5v13H6z" />
+              <path d="M14 3v6h6" />
+            </svg>
+            Open + download <IconArrowOut size={12} />
           </span>
         </a>
       </div>

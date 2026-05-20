@@ -26,7 +26,7 @@ window.PORTFOLIO = {
     email:    "jessicabrinegar@outlook.com",
     linkedin: "https://www.linkedin.com/in/jessicabrinegar/",
     github:   "https://github.com/jessicabrinegar",
-    resume:   "#"
+    resume:   "resume.html"
   },
 
   skills: [
