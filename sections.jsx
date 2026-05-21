@@ -336,46 +336,51 @@ const ProjectCard = ({ project, index }) => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        position: "relative", display: "block",
+        position: "relative", display: "flex", flexDirection: "column",
         aspectRatio: "4 / 5", overflow: "hidden",
-        background: "var(--bg-2)",
+        background: "var(--bg)",
         border: "1px solid var(--rule)",
         cursor: "pointer",
       }}
     >
-      {/* Background — image if available, else gradient swatch */}
+      {/* Image banner — fills the top of the card */}
       <div style={{
-        position: "absolute", inset: 0,
-        background: project.image
-          ? `url(${project.image}) center/cover no-repeat`
-          : `linear-gradient(135deg, ${project.swatch[0]} 0%, ${project.swatch[1]} 100%)`,
-        transition: "transform var(--t-med)",
-        transform: hover ? "scale(1.04)" : "scale(1)",
+        position: "relative", flex: "0 0 58%", overflow: "hidden",
       }}>
-        {/* Soften the photo so foreground text stays readable */}
-        {project.image && (
-          <div style={{
-            position: "absolute", inset: 0,
-            background: "linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.45) 100%)",
-          }} />
-        )}
         <div style={{
           position: "absolute", inset: 0,
-          backgroundImage: "repeating-linear-gradient(45deg, transparent 0 14px, rgba(255,255,255,.06) 14px 15px)",
-        }} />
-        {/* Project number watermark */}
+          background: project.image
+            ? `url(${project.image}) center/cover no-repeat`
+            : `linear-gradient(135deg, ${project.swatch[0]} 0%, ${project.swatch[1]} 100%)`,
+          transition: "transform var(--t-med)",
+          transform: hover ? "scale(1.04)" : "scale(1)",
+        }}>
+          <div style={{
+            position: "absolute", inset: 0,
+            backgroundImage: "repeating-linear-gradient(45deg, transparent 0 14px, rgba(255,255,255,.06) 14px 15px)",
+          }} />
+        </div>
+      </div>
+
+      {/* Swatch panel — title + meta */}
+      <div style={{
+        flex: 1, padding: "clamp(16px, 2.2vw, 24px)",
+        display: "flex", flexDirection: "column", justifyContent: "center",
+        background: "var(--bg)",
+      }}>
         <div style={{
-          position: "absolute", top: 24, left: 24,
-          fontFamily: "var(--f-mono)", fontSize: 11, letterSpacing: ".18em",
-          textTransform: "uppercase", color: "rgba(255,255,255,.9)",
+          fontFamily: "var(--f-mono)", fontSize: 10, letterSpacing: ".18em",
+          textTransform: "uppercase", color: "var(--ink-3)", marginBottom: 8,
         }}>
           /  {String(index + 1).padStart(2, "0")} — {project.year}
         </div>
+        <h3 style={{
+          fontSize: "clamp(18px, 1.7vw, 24px)", lineHeight: 1.15,
+          color: "var(--ink)", marginBottom: 8,
+        }}>{project.title}</h3>
         <div style={{
-          position: "absolute", bottom: 22, left: 24, right: 24,
-          fontFamily: "var(--f-mono)", fontSize: 10, letterSpacing: ".18em",
-          textTransform: "uppercase", color: "rgba(255,255,255,.85)",
-          opacity: hover ? 0 : 1, transition: "opacity var(--t-fast)",
+          fontFamily: "var(--f-mono)", fontSize: 11, letterSpacing: ".04em",
+          lineHeight: 1.5, color: "var(--ink-3)",
         }}>
           {project.tagline}
         </div>
