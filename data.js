@@ -205,7 +205,7 @@ window.PORTFOLIO = {
       role: "Full-stack developer",
       swatch: ["#7A8B6F", "#C9B89A"],
       image: "images/lardr.png",
-      link: { kind: "internal", url: "https://lardr-app.vercel.app/" }
+      link: { kind: "internal", url: "https://lardrapp.com/" }
     },
     {
       slug: "null-not-nothing",
